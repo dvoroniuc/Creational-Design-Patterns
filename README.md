@@ -14,7 +14,7 @@ Created Todo list app using Creational Design Patterns:
 
 Singleton:
 
-<script>
+```
 export class TodoList {
   private static instance: TodoList;
   private constructor() {
@@ -42,11 +42,11 @@ export class TodoList {
     todo.description = description;
     this.Organizer.addViaEmailTask(todo);
   } ......
-</script>
+```
 
 Builder:
 
-<script>
+```
 export class TodoBuilder {
   source: ISource = {
     univercity: "",
@@ -78,11 +78,11 @@ export class TodoBuilder {
     console.log(`Add to eat`);
     return res;
   } ......
-</script>
+```
 
 Factory:
 
-<script>
+```
 export class NotificationFactory {
   createEmailNotification(): INotification {
     const EmailDependency = null;
@@ -93,7 +93,7 @@ export class NotificationFactory {
     return new SmsNotification(SMSdependency);
   }
 } ......
-</script>
+```
 
 <br />
 

@@ -8,13 +8,13 @@ export class Organizer {
   private todo: ITodo[] = [];
   private doing: ITodo[] = [];
 
-  constructor() {}
+  // constructor() {}
 
   addViaEmailTask(task: ITodo): void {
     this.todo.push(task);
     this.emailNotification.send({
       recipient: task.source,
-      title: `New todo item: ${task.payload}`,
+      title: `New todo item: ${task.title}`,
       description: task.description,
     });
   }
@@ -22,7 +22,7 @@ export class Organizer {
     this.todo.push(task);
     this.smsNotification.send({
       recipient: task.source,
-      title: `New todo item: ${task.payload}`,
+      title: `New todo item: ${task.title}`,
       description: task.description,
     });
   }

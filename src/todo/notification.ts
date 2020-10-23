@@ -19,7 +19,9 @@ class EmailNotification implements INotification {
 
   send(props: INotificationProps): void {
     this.system.MakeEmailRequest(props);
-    console.log(`Notified ${props.recipient} about "${props.title}" via Email`);
+    console.log(
+      `New notification from ${props.recipient} about "${props.title}" via Email`
+    );
   }
 }
 
@@ -34,7 +36,9 @@ class SmsNotification implements INotification {
 
   send(props: INotificationProps): void {
     this.system.MakeSmsRequest(props);
-    console.log(`Notified ${props.recipient} about "${props.title}" via SMS`);
+    console.log(
+      `New notification from ${props.recipient} about "${props.title}" via SMS`
+    );
   }
 }
 /**

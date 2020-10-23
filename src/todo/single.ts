@@ -28,7 +28,7 @@ export class TodoList {
   addToEat(food: string, description: string): void {
     console.log("You need to eat!");
     const todo = this.TodoBuilder.createEatItem();
-    todo.payload = food;
+    todo.title = food;
     todo.description = description;
     this.Organizer.addViaEmailTask(todo);
   }
@@ -36,7 +36,7 @@ export class TodoList {
   addToGetGrocery(grocery: string, description: string): void {
     console.log("You need to get groceries!");
     const todo = this.TodoBuilder.createGroceryItem();
-    todo.payload = grocery;
+    todo.title = grocery;
     todo.description = description;
     this.Organizer.addViaSmsTask(todo);
   }
@@ -44,7 +44,7 @@ export class TodoList {
   addToRead(book: string, description: string): void {
     console.log("You need to read this book!");
     const todo = this.TodoBuilder.createReadItem();
-    todo.payload = book;
+    todo.title = book;
     todo.description = description;
     this.Organizer.addViaEmailTask(todo);
   }
@@ -52,7 +52,7 @@ export class TodoList {
   addToWork(task: string, description: string): void {
     console.log("You need to solve this issue!");
     const todo = this.TodoBuilder.createWorkItem();
-    todo.payload = task;
+    todo.title = task;
     todo.description = description;
     this.Organizer.addViaEmailTask(todo);
   }

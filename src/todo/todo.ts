@@ -9,7 +9,7 @@ export enum TodoType {
 export interface ITodo {
   id: number;
   type: TodoType;
-  payload: string;
+  title: string;
   description: string;
   source: string;
 }
@@ -17,7 +17,7 @@ export interface ITodo {
 export class Todo implements ITodo {
   id: number = 0;
   type: TodoType = TodoType.other;
-  payload: string = "";
+  title: string = "";
   description: string = "";
   source: string = "";
 

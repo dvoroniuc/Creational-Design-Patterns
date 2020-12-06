@@ -1,14 +1,17 @@
-## Topic: implementing Creational Design Patterns in todo list app
+## Topic: implementing Creational & Structural Design Patterns in todo list app
 
 ## Author: Voroniuc Denis
 
 <br />
 
-Created Todo list app using Creational Design Patterns:
+Created Todo list app using Creational & Structural Design Patterns:
 
 1. Singleton
 2. Builder
 3. Factory
+4. Decorator
+5. Composite
+6. Proxy
 
 <br />
 Using Singleton for creating TodoList
@@ -97,4 +100,85 @@ export class NotificationFactory {
     return new SmsNotification(SMSdependency);
   }
 } ......
+```
+
+Used Decorator to add new functionality to an existing object without altering its structure.
+
+Decorator:
+Base class:
+
+```
+export class NotificationDecorator implements INotification {
+  protected wrapee: INotification;
+
+  constructor(wrapee: INotification) {
+    this.wrapee = wrapee;
+  }
+
+  send(props: INotificationProps) {
+    this.wrapee.send(props);
+  }
+}
+```
+
+    Child class:
+
+```
+export class SmsNotification implements INotification {
+  system: any;
+  constructor(smsSystemDependency: any) {
+    this.system = {
+      MakeSmsRequest: (props: INotification) => null,
+    };
+  }
+  send(props: INotificationProps): void {
+    this.system.MakeSmsRequest(props);
+    console.log(
+      `New notification from ${props.recipient} about "${props.title}" via SMS`
+    );
+  }
+}
+```
+
+Used Composite Pattern to treat a group of objects in similar way as a single object
+Composite Pattern:
+
+```
+getEstimation(): number {
+    const subtasksEstimation = this.getSubtaskInstances()
+        .map(task => task.getEstimation())
+        .reduce((current, accumulator) => current + accumulator);
+    return this.estimation + subtasksEstimation;
+}
+
+```
+
+I Used a Proxy Pattern in order to manage access to a class
+
+```
+
+  addToGetGrocery(grocery: string, description: string): void {
+    if (this.checkIfUnregistered.execute(this.currentUser)) {
+      console.log("Access denied!");
+      return;
+    }
+    this.todoList.addToGetGrocery(grocery, description);
+  }
+
+...
+
+  authoriseAndRun(user: string, fn: () => void) {
+    this.currentUser = user;
+    fn();
+    this.currentUser = "";
+  }
+
+```
+
+```
+    const registeredUser = "validTocken";
+    mySystem.authoriseAndRun(registeredUser, () =>
+      mySystem.addToGetGrocery("bread", "I need to buy bread for the dinner")
+    );
+
 ```

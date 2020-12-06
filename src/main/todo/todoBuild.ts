@@ -1,5 +1,6 @@
-import { Todo, TodoType, ITodo } from "./todo";
-import { ISource } from "./source";
+import { Todo } from "./todo";
+import { TodoType, ITodo } from "./types";
+import { ISource } from "../source";
 
 /**
  *  Builder

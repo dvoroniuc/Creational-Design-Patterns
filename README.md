@@ -1,4 +1,4 @@
-## Topic: implementing Creational & Structural Design Patterns in todo list app
+## Topic: implementing Creational & Structural & Behavioral Design Patterns in todo list app
 
 ## Author: Voroniuc Denis
 

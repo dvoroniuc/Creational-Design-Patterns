@@ -1,3 +1,7 @@
+/**
+ * Observer
+ */
+
 export type ISubscription<T> = (prev: T, current: T) => void;
 
 export interface ISubscrivable {

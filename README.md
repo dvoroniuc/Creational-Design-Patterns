@@ -12,6 +12,8 @@ Created Todo list app using Creational & Structural Design Patterns:
 4. Decorator
 5. Composite
 6. Proxy
+7. Observer
+8. Chain of Responsibility
 
 <br />
 Using Singleton for creating TodoList

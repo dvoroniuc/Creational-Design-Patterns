@@ -1,5 +1,9 @@
 import { IUserList, UserType } from "./types";
 
+/**
+ * Chain of Responsibility
+ */
+
 abstract class UserHandler {
   protected next!: IUserHandler;
 
